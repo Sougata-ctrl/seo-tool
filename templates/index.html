@@ -155,3 +155,26 @@ function copyText(id) {
     <div class="box">{{ ai_result }}</div>
 </div>
 {% endif %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SEO Generator</title>
+</head>
+<body>
+
+<h2>YouTube SEO Generator</h2>
+
+<form method="POST">
+    <input type="text" name="name" placeholder="Name" required><br><br>
+    <textarea name="event" placeholder="Write event in 1-2 lines" required></textarea><br><br>
+    <button type="submit">Generate</button>
+</form>
+
+<hr>
+
+<pre>
+{{ result }}
+</pre>
+
+</body>
+</html>
