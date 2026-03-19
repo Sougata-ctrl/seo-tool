@@ -149,3 +149,9 @@ function copyText(id) {
 
 </body>
 </html>
+{% if ai_result %}
+<div class="output">
+    <h3>🤖 AI SEO Output</h3>
+    <div class="box">{{ ai_result }}</div>
+</div>
+{% endif %}
