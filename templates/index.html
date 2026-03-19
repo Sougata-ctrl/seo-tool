@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SEO Pack Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(0,0,0,0.6);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00ffd5;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #00ffd5;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #00c9a7;
+        }
+
+        .output {
+            margin-top: 25px;
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .output h3 {
+            margin-top: 15px;
+            color: #00ffd5;
+        }
+
+        .box {
+            background: #111;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-btn {
+            margin-top: 5px;
+            padding: 6px 10px;
+            font-size: 12px;
+            background: #ff4d4d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🔥 SEO Pack Generator</h1>
+
+    <form method="POST">
+        <input name="topic" placeholder="Topic (WB Election 2026)" required>
+        <input name="name" placeholder="Person Name" required>
+        <input name="location" placeholder="Location" required>
+        <input name="event" placeholder="Event (Bangla)" required>
+        <input name="category" placeholder="Category (Politics)" required>
+
+        <select name="format">
+            <option value="Long">Long</option>
+            <option value="Shorts">Shorts</option>
+            <option value="Live">Live</option>
+        </select>
+
+        <button type="submit">🚀 Generate SEO Pack</button>
+    </form>
+
+    {% if result %}
+    <div class="output">
+
+        <h3>📌 Title</h3>
+        <div class="box" id="title">{{ result.title }}</div>
+        <button class="copy-btn" onclick="copyText('title')">Copy</button>
+
+        <h3>📝 Description</h3>
+        <div class="box" id="desc">{{ result.description }}</div>
+        <button class="copy-btn" onclick="copyText('desc')">Copy</button>
+
+        <h3>🏷 Tags</h3>
+        <div class="box" id="tags">{{ result.tags }}</div>
+        <button class="copy-btn" onclick="copyText('tags')">Copy</button>
+
+    </div>
+    {% endif %}
+</div>
+
+<script>
+function copyText(id) {
+    let text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
+    alert("Copied!");
+}
+</script>
+
+</body>
+</html>
